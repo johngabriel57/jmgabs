@@ -1,0 +1,9 @@
+from math import*
+def squaresum(n):
+    sm = 0
+    for x in range (1,n+1):
+        sm = sm + (x**2)
+    return(sm)
+
+print(sm)
+    
