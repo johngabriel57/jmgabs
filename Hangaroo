@@ -1,0 +1,38 @@
+import random
+words= ["tiger", "dog", "cat", "laptop", "phone", "basket", "days", "ball", "yellow",]
+
+def Hangaroo(secretWord):
+    turns= 10
+    lettersGuessed= []
+    
+    name= input(str("Enter your name: "))
+    name= str(name)
+    print("Let's play some Hangman!", name)
+    print("Your word is ", len(secretWord), " letters long. \n" )
+
+    while turns > 0:
+        if isWordGuessed(secretWord, lettersGuessed):
+            return print("You got the word! Congrats ヽ(^o^)丿")
+        
+        print(turns, "tries left.")
+        print("Remaining Letters: \n" + getAvailableLetters(lettersGuessed))
+        
+        guess= input("Please guess a letter: ")
+        guess= str(guess)
+        guess= guess.lower()
+
+        if guess not in lettersGuessed:
+            lettersGuessed.append(guess)
+            if guess in secretWord:
+                print("Wow, you're too good at this T_T: \n" + getGuessedWord(secretWord, lettersGuessed), "\n")
+            else:
+                print("Wrong letter! ¯\_(ツ)_/¯ : \n" + getGuessedWord(secretWord, lettersGuessed), "\n")
+                turns -= 1
+        else:
+            print("C'mon, choose another letter (´_ゝ`): \n" + getGuessedWord(secretWord, lettersGuessed), "\n")
+           
+    return print("You lose. The word was " + str(secretWord), "\n Better luck next time!")
+    
+Hangaroo(random.choice(words))
+
+#run(F5) the program to randomize the word
