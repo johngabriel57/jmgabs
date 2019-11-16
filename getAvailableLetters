@@ -1,0 +1,11 @@
+import string
+
+def getAvailableLetters(lettersGuessed):
+    lcaseLetters= string.ascii_lowercase
+    remLetters= ''
+    
+    for char in lcaseLetters:
+        if char not in lettersGuessed:
+            remLetters= remLetters + char
+            
+    return remLetters
